@@ -25,8 +25,8 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 - Koble sammen datamaskin og nettverksutstyr ved bruk av cisco konsoll kabel
 2. **Kjøre script**
 - Jeg vill påpeke at dette oppsettet går ut på å først sette opp SSH mulighet på en enhet for å så kjøre ansible script på samme enhet før man går videre til neste enhet. Oppsettet starter øverst med Lag 3 switchen og går nedover til Lag 2 switchen med Etherchanneling.
-- Vi starter med og kjøre python script på Lag 3 Switchen
-- ![Hvordan kjøre python script](https://github.com/user-attachments/assets/35e13b88-8b49-47c1-a5d5-8b79ed255e09)
+2.1 Vi starter med og kjøre python script på Lag 3 Switchen
+2.1.1 ![Hvordan kjøre python script](https://github.com/user-attachments/assets/35e13b88-8b49-47c1-a5d5-8b79ed255e09)
 - Når Scriptet har blitt kjørt skal du velge COM port som scriptet skal bli kjørt på. Denne er basert på hvilken du nå er koblet til Lag 3 Switchen med i mitt eksempel er der COM5 eller som du må da skrive det /dev/ttyS5
 - ![Hvilken COMport skal du bruke](https://github.com/user-attachments/assets/1a4e6d57-85a8-48e0-a2e4-dec1bafd4129)
 - Neste steget er å velge Baud Rate som er hastigheten på tilkoblingen via konsoll kabel. Her velger jeg 9600
