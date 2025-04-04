@@ -29,8 +29,10 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 - ![Hvordan kjøre python script](https://github.com/user-attachments/assets/35e13b88-8b49-47c1-a5d5-8b79ed255e09)
 2.2 Når Scriptet har blitt kjørt skal du velge COM port som scriptet skal bli kjørt på. Denne er basert på hvilken du nå er koblet til Lag 3 Switchen med i mitt eksempel er der COM5 eller som du må da skrive det /dev/ttyS5
 - ![Hvilken COMport skal du bruke](https://github.com/user-attachments/assets/1a4e6d57-85a8-48e0-a2e4-dec1bafd4129)
+  
 2.3 Neste steget er å velge Baud Rate som er hastigheten på tilkoblingen via konsoll kabel. Her velger jeg 9600
 - ![Hvilken Baud rate](https://github.com/user-attachments/assets/e61979a1-0cb9-4072-96d5-69727475d087)
+
 2.4 Nå skal det settes et brukernavn og passord for ssh tilkobling. Her er viktig at du bruker **cisco** til begge siden ansible hosts filen bruker dette til ssh
 - ![Brukernavn og Passord til ssh tilkobling](https://github.com/user-attachments/assets/97dd6f1b-c29e-4d4a-a334-865dd9bca79d)
 2.5 Når du skal velge et interface som skal få IP slik at du kan SSH inn spørs det på om du setter opp Switch eller Ruter. Siden denne switchen skal bli ruter senere bruker jeg nå vlan 1 for dette steget
