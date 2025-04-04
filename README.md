@@ -46,6 +46,7 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 2.7 Når det kommer til å sette en IP adresser bruker jeg en adresse som ikke skal brukes senere i oppsettet og er del av et helt annet nettverk hvis du ikke vil redigere i hostsfilen er det best å bruke samme adresse som meg.
 - ![Temp IP for L3 switch + subnetmaske](https://github.com/user-attachments/assets/883d724e-b202-46db-aaa0-4633614601d2)
 - Til slutt kommer scriptet til å Spørre deg hva slags utstyr som blir satt opp her er blir **Switch/switch** og **Ruter/ruter/Router/router** akseptert av scriptet til å jobbe videre på konfigurasjonen
+
 2.8 Når den spør deg her kan du ta hvilken som helst port for dette uten gig1/0/1-3 siden de brukes senere i ansible scriptet. Jeg valgte å bruke gig1/0/7 med VLAN ID 1 som er samme som du satt som interface tidligere i scriptet her setter jeg også switchport mode trunk.
 - ![Unik config for Switch](https://github.com/user-attachments/assets/5594a26d-b263-425b-8827-8f1a2a5a7ab0)
 
@@ -70,6 +71,7 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 2.15 For ruter 2 er det veldig likt oppsett men med forskjellige IP adresser
 - ![Full ssh ruter2 config](https://github.com/user-attachments/assets/ff1b121c-a9ba-4c86-a2b0-bf0fd68641cc)
 - For de to switchene er det også veldig likt oppsett viktigste å påpeke her er at du må kjøre ansible script switchnord.yml før du kjører switchsør.yml dette er fordi switchsør.yml setter opp Etherchanneling og noen access porter for datamaskinene. Siden ansible scriptene bruker en direkte host tilkobling til den IPen jeg har brukt på switchene bør du følge rekkefølgen som står her.
+
 2.16 Switchnord SSH script:
 - ![Full ssh SwitchNord Config](https://github.com/user-attachments/assets/b38ac1a2-ed15-4f6e-8907-a946359564e4)
 
