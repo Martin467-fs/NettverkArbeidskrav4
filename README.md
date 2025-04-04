@@ -36,11 +36,12 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 - ![Switch VLAN interface](https://github.com/user-attachments/assets/5c020107-2455-41f0-bdf3-570fe9c93db3)
 - Hostname for nettverksutstyr kan du velge helt selv her bruker jeg en definisjon av slags utstyr det er og M på slutten for mitt navn 
 - ![Hostname for switch](https://github.com/user-attachments/assets/d22f153c-7e22-47f6-86fe-652f7028c270)
-- Når det kommer til å sette en IP adresser bruker jeg en tilfeldig adresse siden denne adressen og porten ikke skal brukes senere i oppsettet
+- Når det kommer til å sette en IP adresser bruker jeg en adresse som ikke skal brukes senere i oppsettet og er del av et helt annet nettverk hvis du ikke vil redigere i hostsfilen er det best å bruke samme adresse som meg.
 - ![Temp IP for L3 switch + subnetmaske](https://github.com/user-attachments/assets/883d724e-b202-46db-aaa0-4633614601d2)
 - Til slutt kommer scriptet til å Spørre deg hva slags utstyr som blir satt opp her er blir **Switch/switch** og **Ruter/ruter/Router/router** akseptert av scriptet til å jobbe videre på konfigurasjonen
 - Når den spør deg her kan du ta hvilken som helst port for dette uten gig1/0/1-3 siden de brukes senere i ansible scriptet. Jeg valgte å bruke gig1/0/7 med VLAN ID 1 som er samme som du satt som interface tidligere i scriptet her setter jeg også switchport mode trunk.
 - ![Unik config for Switch](https://github.com/user-attachments/assets/5594a26d-b263-425b-8827-8f1a2a5a7ab0)
 - Hvis SSH scriptet ikke møtte på noen tilkoblingsproblemer skal du se dette
 - ![Succesfull ssh config](https://github.com/user-attachments/assets/7358f941-ff71-46e7-9f34-2a6d4e9a1680)
-
+- For å SSH inn på Lag 3 Switchen må du endre IP adressen til datamaskinen din
+![IP config for L3 SSH tilkobling](https://github.com/user-attachments/assets/707f5048-b0a8-4c80-9e0f-22daab236f08)
