@@ -78,7 +78,7 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 2.17 Når du kan rekke fram til "Ruter 2" med SSH kjører du ruter2.yml scriptet.
 - ![Kjøre Ansible på Ruter2](https://github.com/user-attachments/assets/d1bb86ce-8fbf-4c3e-979c-0e448d649877)
 
-- For de to switchene er det også veldig likt oppsett viktigste å påpeke her er at du må kjøre ansible script switchnord.yml før du kjører switchsør.yml dette er fordi switchsør.yml setter opp Etherchanneling og noen access porter for datamaskinene. Siden ansible scriptene bruker en direkte host tilkobling til den IPen jeg har brukt på switchene bør du følge rekkefølgen som står her.
+For de to switchene er det også veldig likt oppsett viktigste å påpeke her er at du må kjøre ansible script switchnord.yml før du kjører switchsør.yml dette er fordi switchsør.yml setter opp Etherchanneling og noen access porter for datamaskinene. Siden ansible scriptene bruker en direkte host tilkobling til den IPen jeg har brukt på switchene bør du følge rekkefølgen som står her.
 
 2.16 Switchnord SSH script:
 - ![Full ssh SwitchNord Config](https://github.com/user-attachments/assets/b38ac1a2-ed15-4f6e-8907-a946359564e4)
