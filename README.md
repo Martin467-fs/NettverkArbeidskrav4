@@ -44,4 +44,9 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 - Hvis SSH scriptet ikke møtte på noen tilkoblingsproblemer skal du se dette
 - ![Succesfull ssh config](https://github.com/user-attachments/assets/7358f941-ff71-46e7-9f34-2a6d4e9a1680)
 - For å SSH inn på Lag 3 Switchen må du endre IP adressen til datamaskinen din
-![IP config for L3 SSH tilkobling](https://github.com/user-attachments/assets/707f5048-b0a8-4c80-9e0f-22daab236f08)
+- ![IP config for L3 SSH tilkobling](https://github.com/user-attachments/assets/707f5048-b0a8-4c80-9e0f-22daab236f08)
+- Når du skal kjøre ansible scriptene bruker du ansible-playbook **navnet til ansible script** -K
+- ![L3Switch ansible script](https://github.com/user-attachments/assets/47564226-e38e-4299-90b4-a7154fbd5f21)
+- Etter Ansible scriptet har blitt kjørt på Lag 3 switchen kan du endre IP adressen på datamaskinen din for siste gang
+- ![IP config for resten av oppsettet](https://github.com/user-attachments/assets/f7cde40c-2224-404e-9858-574825fd666b)
+- 
