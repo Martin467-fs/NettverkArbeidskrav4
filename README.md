@@ -26,4 +26,7 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 2. **Kjøre script**
 - Vi starter med og kjøre python script på Lag 3 Switchen
 - ![Hvordan kjøre python script](https://github.com/user-attachments/assets/35e13b88-8b49-47c1-a5d5-8b79ed255e09)
+- Når Scriptet har blitt kjørt skal du velge COM port som scriptet skal bli kjørt på. Denne er basert på hvilken du nå er koblet til Lag 3 Switchen med i mitt eksempel er der COM5 eller som du må da skrive det /dev/ttyS5
+- ![Hvilken COMport skal du bruke](https://github.com/user-attachments/assets/1a4e6d57-85a8-48e0-a2e4-dec1bafd4129)
+
 
