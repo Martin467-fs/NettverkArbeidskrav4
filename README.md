@@ -24,4 +24,5 @@ Python Script som setter opp SSH tilkobling til cisco nettverksutstyr og Ansible
 - Last ned fra Github direkte eller bruk git pull kommando
 - Koble sammen datamaskin og nettverksutstyr ved bruk av cisco konsoll kabel
 2. **Kjøre script**
-- 
+#### Lag 3 Switch
+Vi starter med Lag 3 Switchen, når den er koblet til med konsoll kabel
