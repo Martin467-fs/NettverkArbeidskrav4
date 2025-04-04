@@ -1,0 +1,24 @@
+IP-plan
+
+STUD2
+
+L3 switch gig1/0/7 temp IP 172.16.0.1
+
+MGMT LAN 192.168.0.0
+PC 192.168.0.2
+L3 Switch 192.168.0.1
+
+L3 switch -> Ruter1 192.168.1.0
+Ruter1 gig0/0/0 192.168.1.1
+L3 192.168.1.2
+
+L3 Switch -> Ruter2 192.168.2.0
+Ruter2 gig0/0/0 192.168.2.1
+L3 192.168.2.2
+
+VLAN 20 ip range 192.168.20.1-255
+HSRP virtual IP 1 192.168.20.1
+Ruter1 gig0/0/1.20 192.168.20.2
+Ruter2 gig0/0/1.20 192.168.20.3
+SwitchNord gig1/0/1 192.168.20.4
+SwitchSør gig0/1 192.168.20.5

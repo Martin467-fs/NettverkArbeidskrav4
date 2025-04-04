@@ -1,0 +1,28 @@
+---
+- name: Configure L3 Switch
+  hosts: 172.16.0.1
+  gather_facts: no
+  connection: network_cli
+  
+  tasks:
+    - name: Load variables
+      ansible.builtin.include_vars: variables.yaml
+    - name: Configure interfaces
+      cisco.ios.ios_config:
+        lines:
+          - no switchport
+          - ip address {{ item.ip_address_L3address }} {{ item.subnet_mask_L3 }}
+        parents: "interface {{ item.name }}"
+      loop: "{{ interface_L3Switch }}"
+    - name: Enable IP Routing
+      cisco.ios.ios_config:
+        lines:
+          - ip routing
+    - name: Configure RIP routing
+      cisco.ios.ios_config:
+        lines:
+          - version 2
+          - no auto-summary
+          - network {{ item }}
+        parents: router rip
+      loop: "{{ rip_networks }}"

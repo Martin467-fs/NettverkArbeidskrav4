@@ -1,0 +1,35 @@
+---
+- name: Configure Cisco Switch
+  hosts: 192.168.20.5
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Load variables
+      ansible.builtin.include_vars: variables.yaml
+    - name: Vlan database
+      cisco.ios.ios_config:
+        lines:
+          - "vlan {{ item.id }}"
+          - "name {{ item.name }}"
+      loop: "{{vlanssør}}"
+    - name: Configure access ports
+      ios_config:
+        lines:
+          - "switchport mode {{ item.mode }}"
+          - "switchport access vlan {{ item.vlan }}"
+          - "switchport trunk allowed vlan {{ item.vlan }}"
+          - "no shutdown"
+        parents: "interface {{ item.interface }}"
+      loop: "{{ Switchsør_ports }}"
+    - name: Configure EtherChannel
+      ios_config:
+        lines:
+          - "interface range {{ etherchannel_ports | join(',') }}"
+          - "channel-group {{ port_channel_id }} mode active"
+    - name: Configure Port-Channel Interface
+      ios_config:
+        lines:
+          - "interface Port-channel {{ port_channel_id }}"
+          - "switchport mode trunk"
+          - "no shutdown"

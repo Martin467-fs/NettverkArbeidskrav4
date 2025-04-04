@@ -1,0 +1,57 @@
+---
+subinterface:
+  name: GigabitEthernet0/0/1.20
+  description_ruter: VLAN20
+  encapsulation: dot1Q 20
+  ip_address_ruter1sub: 192.168.20.2
+  ip_address_ruter2sub: 192.168.20.3
+  subnet_mask_rutersub: 255.255.255.0
+interface_sør:
+  name: GigabitEthernet0/0/1
+interface_nord:
+  name: GigabitEthernet0/0/0
+  ip_address_ruter1int: 192.168.1.1
+  ip_address_ruter2int: 192.168.2.1
+  subnet_mask_ruterint: 255.255.255.252
+rip_networks:
+  - 192.168.20.0
+  - 192.168.0.0
+  - 192.168.1.0
+  - 192.168.2.0
+vlansnord:
+  - { id: 20, name: "VLAN0020" }
+vlanssør:
+  - { id: 20, name: "VLAN0020" }
+  - { id: 10, name: "VLAN0010" }
+Switchnord_ports:
+  - { interface: "GigabitEthernet1/0/1", vlan: 20, mode: "trunk" }
+  - { interface: "GigabitEthernet1/0/2", vlan: 20, mode: "trunk" }
+  - { interface: "GigabitEthernet1/0/3", vlan: 20, mode: "trunk" }
+Switchsør_ports:
+  - { interface: "GigabitEthernet0/1", vlan: 20, mode: "trunk" }
+  - { interface: "FastEthernet0/1", vlan: 20, mode: "trunk" }
+  - { interface: "FastEthernet0/2", vlan: 20, mode: "trunk" }
+  - { interface: "FastEthernet0/3", vlan: 20, mode: "access" }
+  - { interface: "FastEthernet0/4", vlan: 10, mode: "access" }
+interface_L3Switch:
+  - name: GigabitEthernet1/0/1
+    ip_address_L3address: 192.168.0.1
+    subnet_mask_L3: 255.255.255.252
+  - name: GigabitEthernet1/0/2
+    ip_address_L3address: 192.168.1.2
+    subnet_mask_L3: 255.255.255.252
+  - name: GigabitEthernet1/0/3
+    ip_address_L3address: 192.168.2.2
+    subnet_mask_L3: 255.255.255.252
+etherchannel_ports:
+  - "FastEthernet0/2"
+  - "FastEthernet0/1"
+port_channel_id: 1
+switchnord_ip: 192.168.20.4
+switchsør_ip: 192.168.20.5
+switch_subnet: 255.255.255.0
+hsrp_virtual_ip: 192.168.20.1
+hsrp_priority1: "{{ '110' }}"
+hsrp_priority0: "{{ '100' }}"
+hsrp_hello_timer: "1"
+hsrp_hold_timer: "3"

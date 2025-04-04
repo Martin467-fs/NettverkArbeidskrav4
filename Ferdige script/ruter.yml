@@ -1,0 +1,50 @@
+---
+- name: Configure Cisco Router with Subinterfaces and RIPv2
+  hosts: 192.168.1.1
+  gather_facts: no
+  connection: network_cli
+  
+  
+  tasks:
+    - name: Load variables
+      ansible.builtin.include_vars: variables.yaml
+    - name: Configure Interface0
+      cisco.ios.ios_config:
+        lines:
+          - no shutdown
+          - ip address {{ interface_nord.ip_address_ruter1int }} {{ interface_nord.subnet_mask_ruterint }}
+        parents: "interface {{ interface_nord.name }}"
+    - name: Configure no shutdown
+      cisco.ios.ios_config:
+        lines:
+          - no shutdown
+        parents: "interface {{ interface_sør.name }}"
+    - name: Configure subinterfaces
+      cisco.ios.ios_config:
+        lines:
+         - encapsulation {{ subinterface.encapsulation }}
+         - ip address {{ subinterface.ip_address_ruter1sub }} {{ subinterface.subnet_mask_rutersub }}
+         - standby 20 ip {{ hsrp_virtual_ip }}
+         - standby 20 priority {{ hsrp_priority1 }}
+         - standby 20 preempt
+         - standby 20 timers {{ hsrp_hello_timer }} {{ hsrp_hold_timer }}
+        parents: "interface {{ subinterface.name }}"
+    - name: Configure RIP routing
+      cisco.ios.ios_config:
+        lines:
+          - version 2
+          - no auto-summary
+          - network {{ item }}
+        parents: router rip
+      loop: "{{ rip_networks }}"
+    - name: Configure DHCP
+      cisco.ios.ios_config:
+        lines:
+          - ip dhcp excluded-address 192.168.20.150 192.168.20.254
+          - ip dhcp excluded-address 192.168.20.1 192.168.20.10
+          - ip dhcp pool Basseng1
+          - network 192.168.20.0 255.255.255.0
+          - default-router 192.168.20.1
+    - name: Save configuration
+      cisco.ios.ios_config:
+        save_when: modified
